@@ -1,11 +1,17 @@
 import XCTest
+import SwiftUI
 @testable import JWLUIFramework
 
 final class JWLUIFrameworkTests: XCTestCase {
+    @State var text: String
+    
+    public init(text: String) {
+        self.text = text
+        super.init()
+    }
+    
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(JWLUIFramework().text, "Hello, World!")
+        var body: some View { JWLUIFramework.MainTextField(placeholder: "Testing", text: $text)
+    }
     }
 }
